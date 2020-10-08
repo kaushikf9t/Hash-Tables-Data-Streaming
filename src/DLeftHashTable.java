@@ -37,7 +37,7 @@ public class DLeftHashTable {
         int arrayIndex = -1;
 
         for(int k = 0; k < numSegments; k++) {
-            arrayIndex = HashTablesUtil.getHashCode(flowID^hashFunctionsArray[k], segmentSize)*(k+1);
+            arrayIndex = HashTablesUtil.getHashCode(flowID^hashFunctionsArray[k], segmentSize)+(k*segmentSize);
             if (hashTableEntries[arrayIndex] == 0) {
                 return arrayIndex;
             }
