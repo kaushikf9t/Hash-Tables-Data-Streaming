@@ -33,11 +33,6 @@ public class MultiHashTable {
             hashTableEntries[arrayIndex] = flowID;
     }
 
-//    private int getHashCode(int hashInput) {
-//        //Implement the hash function here
-//        return hashInput%numTableEntries;
-//    }
-
     private int getArrayIndex(int flowID) {
         for(int k = 0; k < numHashFunctions; k++) {
             int arrayIndex = HashTablesUtil.getHashCode(flowID^hashFunctionsArray[k], numTableEntries);

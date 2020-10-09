@@ -1,3 +1,9 @@
+/**
+ * Maintains an array with Flow IDs in place
+ * If the index that the FlowID is hashed to is empty, insert flow to the same position
+ * If not, displace the flows in those positions and insert this flow to that vacant position
+ * Do this recursively for certain number of Cuckoo steps to avoid cycles
+ */
 public class CuckooHashTable {
     private int numTableEntries;
 
