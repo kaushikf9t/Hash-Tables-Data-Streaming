@@ -12,13 +12,16 @@ public class MultiHashTable {
 
     private int numTableEntries;
 
+    private int numFlows;
+
     public int[] getHashTableEntries() {
         return hashTableEntries;
     }
 
-    public MultiHashTable(int numTableEntries, int numHashFunctions) {
-        this.numHashFunctions = numHashFunctions;
+    public MultiHashTable(int numFlows, int numTableEntries, int numHashFunctions) {
+        this.numFlows = numFlows;
         this.numTableEntries = numTableEntries;
+        this.numHashFunctions = numHashFunctions;
         hashFunctionsArray = HashTablesUtil.initHashFunctionsArray(numHashFunctions);
         this.hashTableEntries = new int[numTableEntries];
 

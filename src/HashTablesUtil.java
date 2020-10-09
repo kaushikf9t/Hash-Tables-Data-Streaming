@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Random;
 
 public class HashTablesUtil {
@@ -16,14 +17,27 @@ public class HashTablesUtil {
     }
 
     public static void printHashTable(int[] hashTableEntries) {
-        double filledCount = 0.0;
+        for (int hashTableEntry : hashTableEntries) {
+            System.out.println("Flow " + hashTableEntry);
+        }
+        System.out.println("Total number of flows in the table " + getNumFlows(hashTableEntries));
+    }
+
+    public static void writeTableEntriesToOutputFile(String tableType, int numFlows) throws IOException {
+        String fileName = tableType + "output.txt";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        writer.write(Integer.toString(numFlows));
+        writer.close();
+    }
+
+    public static int getNumFlows(int[] hashTableEntries) {
+        int filledCount = 0;
         for (int hashTableEntry : hashTableEntries) {
             if(hashTableEntry > 0) {
                 filledCount++;
-                //System.out.println("Flow " + hashTableEntry);
             }
         }
-        System.out.println("Filled Ratio " + filledCount/hashTableEntries.length);
+        return filledCount;
     }
 
 }
